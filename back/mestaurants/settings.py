@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'list',
     'rest_framework',
     'user',
+    'corsheaders',
+    'django.contrib.sites',
 ]
 
 SIMPLE_JWT = {
@@ -98,6 +100,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # CORS 미들웨어 추가
+    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
 ]
 
 ROOT_URLCONF = 'mestaurants.urls'

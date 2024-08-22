@@ -15,7 +15,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, studentNumber, name, password=None, **extra_fields):
+    def create_superuser(self, studentNumber, name='관리자', password=None, **extra_fields):
         superuser = self.create_user(
             studentNumber=studentNumber,
             name=name, 
@@ -47,4 +47,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'studentNumber'
 
     def __str__(self):
-        return self.name
+        return self.studentNumber
